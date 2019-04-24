@@ -1,3 +1,4 @@
 <p>Name: <%= @student.format_name %></p>
 <p>House: <%= @student.house.name.capitalize %></p>
 <p>Age: <%= @student.age %></p>
+<p><a href="/students/<%= @student.id %>/edit">Edit Student Information</a></p>
