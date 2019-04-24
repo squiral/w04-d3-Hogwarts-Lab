@@ -14,7 +14,6 @@ end
 # new
 
 get '/students/new' do
-
   erb(:new)
 end
 
@@ -48,3 +47,9 @@ post '/students/:id' do
 end
 
 # destroy
+
+post '/students/:id/delete' do
+  student = Student.find( params[:id] )
+  student.delete()
+  erb(:destroy)
+end
