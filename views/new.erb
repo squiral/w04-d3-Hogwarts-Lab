@@ -6,25 +6,34 @@ name="first_name"
 id="first-name-field"
 />
 
+
+<div class="form">
 <label for="last-name-field">Last Name:</label>
 <input type="text"
 name="last_name"
 id="last-name-field"
 />
+</div>
 
+
+<div class="form">
 <label for="age-field">Age:</label>
 <input type="number"
  name="age"
  id="age-field"
  />
+</div>
 
 
 <label for="house_select">Select House:</label>
 <select name="house_id" id="house_select">
-  <option value="1">Gryffindor</option>
+  <% @houses.each do |house| %>
+    <option value=<%= house.id %>><%= house.name.capitalize %></option>
+  <% end %>
+  <!-- <option value="1">Gryffindor</option>
   <option value="2">Hufflepuff</option>
   <option value="3">Ravenclaw</option>
-  <option value="4">Slytherin</option>
+  <option value="4">Slytherin</option> -->
 </select>
 
 <input type="submit" value="Enroll Student">

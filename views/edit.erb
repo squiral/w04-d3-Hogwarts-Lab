@@ -23,15 +23,24 @@ value="<%= @student.last_name %>"
 
 
 <label for="house_select">Select House:</label>
-<select name="house_id" id="house_select">
-  <option value="1" <%= "selected" if @student.house.name == "gryffindor" %>
+<select name="house_id" id="house_select" selected="<%= @student.house_id %>">
+  <% @houses.each do |house| %>
+    <% if house.id == @student.house_id %>
+      <option value=<%= house.id %> selected><%= house.name.capitalize %></option>
+    <% else %>
+      <option value=<%= house.id %>><%= house.name.capitalize %></option>
+    <% end %>
+  <% end %>
+
+
+  <!-- <option value="1" <%= "selected" if @student.house.name == "gryffindor" %>
   >Gryffindor</option>
   <option value="2" <%= "selected" if @student.house.name == "hufflepuff" %>
   >Hufflepuff</option>
   <option value="3" <%= "selected" if @student.house.name == "ravenclaw" %>
   >Ravenclaw</option>
   <option value="4" <%= "selected" if @student.house.name == "slytherin" %>
-  >Slytherin</option>
+  >Slytherin</option> -->
 </select>
 
 <input type="submit" value="Update Student">

@@ -14,6 +14,7 @@ end
 # new
 
 get '/students/new' do
+  @houses = House.all
   erb(:new)
 end
 
@@ -35,6 +36,7 @@ end
 # edit
 
 get '/students/:id/edit' do
+  @houses = House.all
   @student = Student.find( params[:id] )
   erb(:edit)
 end
